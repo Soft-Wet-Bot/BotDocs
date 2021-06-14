@@ -1,5 +1,5 @@
 node_modules/
 .next/
-src/data/commands/
+# src/data/commands/
 src/data/pages/
 src/configs/commands.js
