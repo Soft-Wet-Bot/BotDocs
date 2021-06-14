@@ -1,0 +1,1345 @@
+{
+    "fun": [
+        {
+            "guild_only": true,
+            "name": "cinderella",
+            "aliases": [
+                "avatar"
+            ],
+            "description": "Sends the avatar of the provided user(s)",
+            "usage": "cinderella [@ Mentioned Users]",
+            "params": [
+                {
+                    "name": "users",
+                    "description": "The users you want the avatar of.",
+                    "type": "string",
+                    "is_sentence": true,
+                    "default": "Returns your avatar"
+                }
+            ],
+            "example": "cinderella @Yimura#6969 @GeopJr#4066"
+        },
+        {
+            "guild_only": true,
+            "name": "hermit purple",
+            "aliases": [],
+            "description": "Info about mentioned user",
+            "usage": "hermit purple [@ Mentioned User]",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "The user from which you want more information.",
+                    "type": "string",
+                    "default": "Shows info about your own user"
+                }
+            ],
+            "example": "hermit purple @Yimura#6969"
+        },
+        {
+            "name": "janken",
+            "aliases": [
+                "rps"
+            ],
+            "description": "Play rock paper scissors against Soft & Wet",
+            "usage": "janken <hand>",
+            "params": [
+                {
+                    "name": "hand",
+                    "description": "rock/paper/scissors",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "example": "janken rock"
+        },
+        {
+            "name": "wiki",
+            "aliases": [
+                "wikia",
+                "find"
+            ],
+            "description": "Search the jojo wiki for something",
+            "usage": "wiki <term>",
+            "params": [
+                {
+                    "name": "term",
+                    "description": "The term to be searched",
+                    "type": "string",
+                    "is_sentence": true,
+                    "required": true
+                }
+            ],
+            "example": "wiki Soft & Wet"
+        }
+    ],
+    "informative": [
+        {
+            "name": "help",
+            "aliases": [
+                "h"
+            ],
+            "description": "Gives a link to a website where you can find all the information you need.",
+            "usage": "help",
+            "params": [],
+            "example": "help"
+        },
+        {
+            "name": "info",
+            "aliases": [
+                "information"
+            ],
+            "description": "Responds with the bots info.",
+            "usage": "info",
+            "params": [],
+            "examples": []
+        },
+        {
+            "name": "invite",
+            "aliases": [
+                "inv"
+            ],
+            "description": "Invite Damon to your Discord server.",
+            "usage": "invite",
+            "params": [],
+            "example": "invite"
+        },
+        {
+            "name": "ping",
+            "aliases": [
+                "pong"
+            ],
+            "description": "Shows bot's ping to Discord, response time and reply time.",
+            "usage": "ping",
+            "params": [],
+            "example": "ping"
+        },
+        {
+            "name": "stats",
+            "aliases": [
+                "status"
+            ],
+            "description": "Shows a couple of stats about the bot.",
+            "usage": "stats",
+            "params": [],
+            "example": "stats"
+        }
+    ],
+    "moderation": [
+        {
+            "name": "bites the dust",
+            "aliases": [
+                "king crimson",
+                "killer queen",
+                "the hand",
+                "za hando"
+            ],
+            "description": "Remove a given amount of messages in the current channel",
+            "usage": "bites the dust <amount>",
+            "params": [
+                {
+                    "name": "amount",
+                    "description": "The message count to remove",
+                    "type": "int",
+                    "required": true
+                }
+            ],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "MANAGE_MESSAGES"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "MANAGE_MESSAGES"
+            },
+            "example": "bites the dust 15"
+        },
+        {
+            "name": "crazy diamond",
+            "aliases": [
+                "unban"
+            ],
+            "description": "Unban provided user",
+            "usage": "crazy diamond <ID> [reason]",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the user you want to unban.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "reason",
+                    "description": "The reason you issued this unban.",
+                    "type": "string",
+                    "default": null,
+                    "is_sentence": true
+                }
+            ],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "BAN_MEMBERS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "BAN_MEMBERS"
+            },
+            "example": "crazy diamond @Yimura#6969"
+        },
+        {
+            "name": "kraft work",
+            "aliases": [],
+            "description": "This command prevents anyone from sending messages, redoing the command will disable the effects of this command.",
+            "usage": "kraft work",
+            "params": [],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "MANAGE_CHANNELS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "MANAGE_CHANNELS"
+            },
+            "example": ""
+        },
+        {
+            "name": "made in heaven",
+            "aliases": [
+                "madeinheaven"
+            ],
+            "description": "Clear all messages in a channel",
+            "usage": "made in heaven",
+            "params": [],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "MANAGE_CHANNELS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "MANAGE_CHANNELS"
+            }
+        },
+        {
+            "name": "za warudo",
+            "aliases": [
+                "the world"
+            ],
+            "description": "Enables slow mode for the current channel, use \"za warudo reset\" to reset the effects of this command.",
+            "usage": "za warudo <seconds>",
+            "params": [
+                {
+                    "name": "seconds",
+                    "description": "The amount of seconds for slow mode, 0 to reset.",
+                    "type": "int",
+                    "required": true
+                }
+            ],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "MANAGE_CHANNELS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "MANAGE_CHANNELS"
+            },
+            "example": "the world 60"
+        },
+        {
+            "name": "star platinum ban",
+            "aliases": [
+                "punch"
+            ],
+            "description": "Ban provided user",
+            "usage": "star platinum ban <mention> [reason]",
+            "params": [
+                {
+                    "name": "mention",
+                    "description": "The user you want to ban.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "reason",
+                    "description": "The reason you issued this ban.",
+                    "type": "string",
+                    "default": null,
+                    "is_sentence": true
+                }
+            ],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "BAN_MEMBERS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "BAN_MEMBERS"
+            },
+            "example": "star platinum ban @Yimura#6969"
+        },
+        {
+            "name": "star platinum kick",
+            "aliases": [
+                "star finger"
+            ],
+            "description": "Kick provided user",
+            "usage": "star platinum kick <mention> [reason]",
+            "params": [
+                {
+                    "name": "mention",
+                    "description": "The user you want to kick.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "reason",
+                    "description": "The reason you issued this kick.",
+                    "type": "string",
+                    "default": null,
+                    "is_sentence": true
+                }
+            ],
+            "permissions": {
+                "logic": "AND",
+                "levels": [
+                    {
+                        "type": "SERVER",
+                        "name": "KICK_MEMBERS"
+                    }
+                ]
+            },
+            "self_permission": {
+                "text_channel": "KICK_MEMBERS"
+            },
+            "example": "star platinum kick @Yimura#6969"
+        }
+    ],
+    "prefix": [
+        {
+            "guild_only": true,
+            "name": "reset prefix",
+            "aliases": [
+                "remove prefix",
+                "resetprefix"
+            ],
+            "description": "Reset the prefix to the default value.",
+            "usage": "reset prefix",
+            "params": [],
+            "permissions": {
+                "logic": "OR",
+                "levels": [
+                    {
+                        "type": "server",
+                        "name": "MANAGE_CHANNELS"
+                    }
+                ]
+            },
+            "example": "reset prefix"
+        },
+        {
+            "guild_only": true,
+            "name": "set prefix",
+            "aliases": [
+                "setprefix",
+                "changeprefix",
+                "change prefix"
+            ],
+            "description": "Change the bot its prefix in your server.",
+            "usage": "setprefix <new-prefix>",
+            "params": [
+                {
+                    "name": "new-prefix",
+                    "description": "Changes the prefix to which Soft & Wet listens on in your server.",
+                    "type": "string",
+                    "default": "Resets the the custom prefix if one was set."
+                }
+            ],
+            "permissions": {
+                "logic": "OR",
+                "levels": [
+                    {
+                        "type": "server",
+                        "name": "MANAGE_CHANNELS"
+                    }
+                ]
+            },
+            "example": "changeprefix b?"
+        }
+    ],
+    "heavensdoor": [
+        {
+            "name": "heavens door 9gag",
+            "aliases": [],
+            "description": "Adds the 9gag watermark to a picture",
+            "usage": "heavens door 9gag [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door 9gag"
+        },
+        {
+            "name": "heavens door album",
+            "aliases": [
+                "trump5"
+            ],
+            "description": "Provided image is Trump's favourite album",
+            "usage": "heavens door album [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door album"
+        },
+        {
+            "name": "heavens door bandicam",
+            "aliases": [],
+            "description": "Adds the bandicam watermark to a picture",
+            "usage": "heavens door bandicam [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door bandicam"
+        },
+        {
+            "name": "heavens door bitesthedust",
+            "aliases": [
+                "bites the dust",
+                "btd"
+            ],
+            "description": "Activate bites the dust on an image",
+            "usage": "heavens door bitesthedust [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door bitesthedust"
+        },
+        {
+            "name": "heavens door bitesthedust2",
+            "aliases": [
+                "btd2",
+                "bitesthedustalt"
+            ],
+            "description": "Activate bites the dust alternate on an image",
+            "usage": "heavens door bitesthedust [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door bitesthedust2"
+        },
+        {
+            "name": "heavens door blur",
+            "aliases": [],
+            "description": "Blur an image",
+            "usage": "heavens door blur [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door blur"
+        },
+        {
+            "name": "heavens door blurple",
+            "aliases": [
+                "discordify",
+                "discord"
+            ],
+            "description": "Blurple an image",
+            "usage": "heavens door blurple [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door blurple"
+        },
+        {
+            "name": "heavens door boku",
+            "aliases": [
+                "bnha"
+            ],
+            "description": "Boku loves provided image",
+            "usage": "heavens door boku [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door boku"
+            ]
+        },
+        {
+            "name": "heavens door brazzers",
+            "aliases": [],
+            "description": "Adds the brazzers watermark to a picture",
+            "usage": "heavens door brazzers [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door brazzers"
+        },
+        {
+            "name": "heavens door deepfry",
+            "aliases": [],
+            "description": "Deepfry an image",
+            "usage": "heavens door deepfry [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door deepfry"
+        },
+        {
+            "name": "heavens door delete",
+            "aliases": [
+                "delete",
+                "remove"
+            ],
+            "description": "Deletes an image",
+            "usage": "heavens door delete [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door delete"
+            ]
+        },
+        {
+            "name": "heavens door disability",
+            "aliases": [],
+            "description": "Not all disabilities look like \"your image\"",
+            "usage": "heavens door disability [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door disability"
+            ]
+        },
+        {
+            "name": "heavens door erection",
+            "aliases": [],
+            "description": "Kira gets an erection looking at an image",
+            "usage": "heavens door erection [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door erection"
+        },
+        {
+            "name": "heavens door explode",
+            "aliases": [],
+            "description": "Explodes an image",
+            "usage": "heavens door explode [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door explode"
+        },
+        {
+            "name": "heavens door flip",
+            "aliases": [],
+            "description": "Flips an image over its horizontal axis",
+            "usage": "heavens door flip [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door flip"
+        },
+        {
+            "name": "heavens door flop",
+            "aliases": [],
+            "description": "Flips an image over its vertical axis",
+            "usage": "heavens door flop [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door flop"
+        },
+        {
+            "name": "heavens door fool",
+            "aliases": [],
+            "description": "The provided image is a fool",
+            "usage": "heavens door fool [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door fool"
+        },
+        {
+            "name": "heavens door god",
+            "aliases": [
+                "allah",
+                "buddha"
+            ],
+            "description": "The provided image is god",
+            "usage": "heavens door god [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door god"
+        },
+        {
+            "name": "heavens door haah",
+            "aliases": [],
+            "description": "Haahs an image",
+            "usage": "heavens door flop [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door haah"
+        },
+        {
+            "name": "heavens door hooh",
+            "aliases": [],
+            "description": "Hoohs an image",
+            "usage": "heavens door flop [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door hooh"
+        },
+        {
+            "name": "heavens door hottest",
+            "aliases": [],
+            "description": "Heart attack goes after an image",
+            "usage": "heavens door hottest [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door hottest"
+        },
+        {
+            "name": "heavens door ifunny",
+            "aliases": [],
+            "description": "Adds the ifunny watermark to a picture",
+            "usage": "heavens door ifunny [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door ifunny"
+        },
+        {
+            "name": "heavens door implode",
+            "aliases": [],
+            "description": "Implodes an image",
+            "usage": "heavens door explode [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door implode"
+            ]
+        },
+        {
+            "name": "heavens door invert",
+            "aliases": [],
+            "description": "Invert an image",
+            "usage": "heavens door invert [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door invert"
+            ]
+        },
+        {
+            "name": "heavens door jerma",
+            "aliases": [],
+            "description": "Jerma doesn't like provided image",
+            "usage": "heavens door jerma [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door jerma"
+        },
+        {
+            "name": "heavens door kanye",
+            "aliases": [
+                "trump3"
+            ],
+            "description": "Trump likes the provided image",
+            "usage": "heavens door kanye [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door kanye"
+        },
+        {
+            "name": "heavens door kira",
+            "aliases": [],
+            "description": "An image has scared Kira",
+            "usage": "heavens door kira [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door kira"
+        },
+        {
+            "name": "heavens door liar",
+            "aliases": [],
+            "description": "An image has the taste of a liar",
+            "usage": "heavens door liar [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door liar"
+        },
+        {
+            "name": "heavens door magik",
+            "aliases": [],
+            "description": "Magiks an image",
+            "usage": "heavens door magik [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door magik"
+        },
+        {
+            "name": "heavens door mask",
+            "aliases": [],
+            "description": "A person wears the provided image to hide their angery",
+            "usage": "heavens door mask [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door mask"
+        },
+        {
+            "name": "heavens door medic",
+            "aliases": [
+                "medick"
+            ],
+            "description": "Medic is dissapointed at your image",
+            "usage": "heavens door medic [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door medic"
+        },
+        {
+            "name": "heavens door melania",
+            "aliases": [
+                "trump4"
+            ],
+            "description": "Malia is about to sell provided image",
+            "usage": "heavens door melania [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door melania"
+        },
+        {
+            "name": "heavens door morejpeg",
+            "aliases": [
+                "morejpg"
+            ],
+            "description": "Morejpegs an image",
+            "usage": "heavens door morejpeg [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door morejpg"
+        },
+        {
+            "name": "heavens door president",
+            "aliases": [
+                "prez"
+            ],
+            "description": "Provided image is now the president",
+            "usage": "heavens door president [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door president"
+        },
+        {
+            "name": "heavens door radial",
+            "aliases": [
+                "radial blur"
+            ],
+            "description": "Radial blur an image",
+            "usage": "heavens door radial [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door radial"
+        },
+        {
+            "name": "heavens door saxton",
+            "aliases": [],
+            "description": "Provided image is Saxton's",
+            "usage": "heavens door saxton [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door saxton"
+        },
+        {
+            "name": "heavens door scott",
+            "aliases": [],
+            "description": "Scott shows your image",
+            "usage": "heavens door scott [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door scott"
+        },
+        {
+            "name": "heavens door sharp",
+            "aliases": [
+                "sharpen",
+                "#"
+            ],
+            "description": "Sharp an image",
+            "usage": "heavens door sharp [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door sharp"
+        },
+        {
+            "name": "heavens door steam",
+            "aliases": [
+                "epicgamesstore"
+            ],
+            "description": "Provided image is the new steam update",
+            "usage": "heavens door steam [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door steam"
+        },
+        {
+            "name": "heavens door swirl",
+            "aliases": [],
+            "description": "Swirls an image",
+            "usage": "heavens door swirl [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door swirl"
+        },
+        {
+            "name": "heavens door the world",
+            "aliases": [
+                "za warudo"
+            ],
+            "description": "Explodes & Inverts an image",
+            "usage": "heavens door the world [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door the world"
+        },
+        {
+            "name": "heavens door thicc",
+            "aliases": [
+                "thick",
+                "mirror"
+            ],
+            "description": "Provided image is thicc",
+            "usage": "heavens door thicc [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door thicc"
+        },
+        {
+            "name": "heavens door tile",
+            "aliases": [],
+            "description": "Makes a tile of an image",
+            "usage": "heavens door tile [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door tile"
+        },
+        {
+            "name": "heavens door timmy",
+            "aliases": [
+                "odd",
+                "turner",
+                "fop"
+            ],
+            "description": "Timmy stares at provided image",
+            "usage": "heavens door timmy [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door timmy"
+        },
+        {
+            "name": "heavens door trump",
+            "aliases": [],
+            "description": "Trump likes your image",
+            "usage": "heavens door trump [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door trump"
+        },
+        {
+            "name": "heavens door trump2",
+            "aliases": [],
+            "description": "Trump stares at provided image",
+            "usage": "heavens door trump2 [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door trump2"
+        },
+        {
+            "name": "heavens door urgent",
+            "aliases": [
+                "message",
+                "msg",
+                "dm"
+            ],
+            "description": "Provided image was urgently sent",
+            "usage": "heavens door urgent [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door urgent"
+        },
+        {
+            "name": "heavens door waaw",
+            "aliases": [],
+            "description": "Waaws an image",
+            "usage": "heavens door waaw [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "examples": [
+                "heavens door waaw"
+            ]
+        },
+        {
+            "name": "heavens door wall",
+            "aliases": [],
+            "description": "Makes a wall of an image",
+            "usage": "heavens door wall [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door wall"
+        },
+        {
+            "name": "heavens door who did this",
+            "aliases": [
+                "whodidthis",
+                "wdt"
+            ],
+            "description": "Who did this image",
+            "usage": "heavens door 9gag [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door who did this"
+        },
+        {
+            "name": "heavens door woow",
+            "aliases": [],
+            "description": "Woow an image",
+            "usage": "heavens door woow [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door woow"
+        },
+        {
+            "name": "heavens door worse than hitler",
+            "aliases": [
+                "worsethanhitler",
+                "wth"
+            ],
+            "description": "Worse than Hitler image",
+            "usage": "heavens door worse than hitler [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door worse than hitler"
+        },
+        {
+            "name": "heavens door hates",
+            "aliases": [],
+            "description": "Jotaro hates an image",
+            "usage": "heavens door jotaro hates [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door jotaro hates"
+        },
+        {
+            "name": "heavens door loves",
+            "aliases": [],
+            "description": "Jotaro loves an image",
+            "usage": "heavens door jotaro loves [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door jotaro loves"
+        },
+        {
+            "name": "heavens door shows",
+            "aliases": [],
+            "description": "Jotaro shows an image",
+            "usage": "heavens door jotaro shows [image resolvable]",
+            "params": [
+                {
+                    "name": "image resolvable",
+                    "description": "A link, a mentioned user or url to an image.",
+                    "type": "string",
+                    "default": "Takes the author's profile picture"
+                }
+            ],
+            "example": "heavens door jotaro shows"
+        }
+    ],
+    "goldexperience": [
+        {
+            "name": "gold experience bird",
+            "aliases": [],
+            "description": "Sends a bird picture",
+            "usage": "gold experience bird",
+            "params": [],
+            "examples": "gold experience bird"
+        },
+        {
+            "name": "gold experience cat",
+            "aliases": [],
+            "description": "Sends a cat picture",
+            "usage": "gold experience cat",
+            "params": [],
+            "example": "gold experience cat"
+        },
+        {
+            "name": "gold experience dog",
+            "aliases": [],
+            "description": "Sends a dog picture",
+            "usage": "gold experience dog",
+            "params": [],
+            "example": "gold experience dog"
+        },
+        {
+            "name": "gold experience doge",
+            "aliases": [
+                "shibes"
+            ],
+            "description": "Sends a doge picture",
+            "usage": "gold experience doge",
+            "params": [],
+            "example": "gold experience doge"
+        },
+        {
+            "name": "gold experience fox",
+            "aliases": [],
+            "description": "Sends a fox picture",
+            "usage": "gold experience fox",
+            "params": [],
+            "example": "gold experience fox"
+        },
+        {
+            "name": "gold experience goose",
+            "aliases": [],
+            "description": "Sends a goose picture",
+            "usage": "gold experience goose",
+            "params": [],
+            "example": "gold experience goose"
+        },
+        {
+            "name": "gold experience lizard",
+            "aliases": [],
+            "description": "Sends a lizard picture",
+            "usage": "gold experience lizard",
+            "params": [],
+            "example": "gold experience lizard"
+        }
+    ]
+}

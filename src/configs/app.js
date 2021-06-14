@@ -1,14 +1,14 @@
 module.exports = {
-    "bot_prefix": "!",
-    "list_mode": "default",
+    "bot_prefix": "==",
+    "list_mode": "cards",
     "locale": "en",
     "locale_fallback": "en",
-    "enable_pages": true,
+    "enable_pages": false,
     "menu_links": {
         "default": [],
         "custom_pages": []
     },
-    "logo_url": "/static/images/logos/spyral.png",
+    "logo_url": "/static/images/logos/softwet.png",
     "category_colors": {},
     "enable_footer_credits": true
 };
