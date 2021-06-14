@@ -17,6 +17,7 @@ FileUtils.rm_rf("./src/data/commands/") if Dir.exists?("./src/data/commands/")
 
 total = 0
 commands.each do |category, v|
+  Dir.mkdir_p("./src/data/commands/#{category}/") unless Dir.exists?("./src/data/commands/#{category}/")
   v.as_a.each do |x|
     name = x.as_h["name"].to_s
     desc = x.as_h["description"].to_s
@@ -29,7 +30,6 @@ commands.each do |category, v|
 
     ![an image showcasing the command in use](/static/images/commands/#{category}/#{name.gsub(" ", "%20")}.png)
     MARKDOWN
-    Dir.mkdir_p("./src/data/commands/#{category}/") unless Dir.exists?("./src/data/commands/#{category}/")
     File.write("./src/data/commands/#{category}/#{name}.md", markdown)
     total = total.succ
   end
